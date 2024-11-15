@@ -1,10 +1,11 @@
 import React from 'react';
+import { Handle, Position } from '@xyflow/react';
 
-export default function ViewNode(data) {
-    const message = data.connectedNodes?.map(node => node.data.text || '').join('\n\n') || '';
+export default function ViewNode({ data }) {
+    const message = data.connectedNodes?.map((node) => node.data.text || '').join('\n\n') || '';
 
     return (
-        <Card className="p-4 w-64">
+        <div className="p-4 w-64 bg-white rounded-lg">
             <div className="font-semibold mb-2 text-purple-600">Vista Previa WhatsApp</div>
             <div className="text-sm mb-2">
                 Nodos conectados: {data.connectedNodes?.length || 0}/6
@@ -13,7 +14,6 @@ export default function ViewNode(data) {
                 <div className="text-sm whitespace-pre-wrap">{message}</div>
             </div>
             <Handle type="target" position={Position.Top} />
-        </Card>
+        </div>
     );
-
 }
