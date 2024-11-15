@@ -26,14 +26,4 @@ export const initialNodes = [
         data: { label: '4' },
         style: { backgroundColor: '#6d6e29', color: 'white' },
     },
-    {
-        id: '5',
-        type: 'messageInput',
-        position: { x: 0, y: 300 },
-    },
-    {
-        id: '6',
-        type: 'counter',
-        position: { x: 200, y: 300 },
-    },
 ];
