@@ -1,8 +1,11 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Plus, X } from "lucide-react";
 
-const KeywordsNode = memo(({ data }) => {
+export default function KeywordsNode(data) {
     const [keywords, setKeywords] = useState(data.keywords || ['hola', 'info']);
 
     const handleKeywordChange = (index, value) => {
@@ -12,34 +15,56 @@ const KeywordsNode = memo(({ data }) => {
         data.onChange(data.id, { keywords: newKeywords });
     };
 
+    const handleRemoveKeyword = (index) => {
+        const newKeywords = keywords.filter((_, i) => i !== index);
+        setKeywords(newKeywords);
+        data.onChange(data.id, { keywords: newKeywords });
+    };
+
+    const addKeyword = () => {
+        const newKeywords = [...keywords, ''];
+        setKeywords(newKeywords);
+        data.onChange(data.id, { keywords: newKeywords });
+    };
+
     return (
-        <Card className="p-4 w-64">
-            <div className="font-semibold mb-2 text-blue-600">Keywords Trigger</div>
-            <div className="space-y-2">
+        <Card className="w-64 shadow-lg">
+            <CardHeader className="pb-2">
+                <CardTitle className="text-blue-600 text-lg font-medium text-center">
+                    Palabras Clave
+                </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
                 {keywords.map((keyword, index) => (
                     <div key={index} className="flex items-center gap-2">
-                        <input
+                        <Input
                             type="text"
                             value={keyword}
                             onChange={(e) => handleKeywordChange(index, e.target.value)}
-                            className="border rounded px-2 py-1 w-full"
+                            className="h-8"
+                            placeholder="Ingresa una keyword..."
                         />
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 p-0"
+                            onClick={() => handleRemoveKeyword(index)}
+                        >
+                            <X className="h-4 w-4" />
+                        </Button>
                     </div>
                 ))}
-                <button
-                    onClick={() => {
-                        const newKeywords = [...keywords, ''];
-                        setKeywords(newKeywords);
-                        data.onChange(data.id, { keywords: newKeywords });
-                    }}
-                    className="bg-blue-500 text-white px-2 py-1 rounded text-sm hover:bg-blue-600"
+                <Button
+                    onClick={addKeyword}
+                    variant="outline"
+                    className="w-full mt-2"
+                    size="sm"
                 >
-                    + Agregar Keyword
-                </button>
-            </div>
+                    <Plus className="h-4 w-4 mr-2" />
+                    Agregar Keyword
+                </Button>
+            </CardContent>
             <Handle type="source" position={Position.Bottom} />
         </Card>
     );
-});
-
-export default KeywordsNode;
+}

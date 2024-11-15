@@ -9,7 +9,7 @@ import useFlow from './useFlow';
 const FlowWithSidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const reactFlowWrapper = useRef(null);
-    const { nodes, edges, onNodesChange, onEdgesChange, onConnect, onDrop, onDragOver, onDragStart } = useFlow();
+    const { nodes, edges, onNodesChange, onEdgesChange, onConnect, onDrop, onDragOver, onDragStart, nodeTypes } = useFlow();
 
     return (
         <div className="h-screen flex overflow-hidden bg-gray-50">
@@ -34,6 +34,7 @@ const FlowWithSidebar = () => {
                     onConnect={onConnect}
                     onDrop={onDrop}
                     onDragOver={onDragOver}
+                    nodeTypes={nodeTypes}
                     fitView
                 >
                     <Controls />

@@ -1,21 +1,20 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { Card } from '@/components/ui/card';
 
-const TextInputNode = memo(({ data, id }) => {
+export default function TextInputNode({ data, id }) {
+    const { text, onChange } = data;
+
     return (
-        <Card className="p-4 w-64">
+        <div className="p-4 w-64 bg-white rounded-lg">
             <div className="font-semibold mb-2 text-green-600">Input de Texto</div>
             <textarea
-                value={data.text || ''}
-                onChange={(e) => data.onChange(id, { text: e.target.value })}
-                className="w-full h-24 border rounded p-2"
+                value={text || ''}
+                onChange={(e) => onChange(id, { text: e.target.value })}
+                className="w-full h-24 border rounded p-2 bg-white"
                 placeholder="Escribe el texto aquí..."
             />
             <Handle type="target" position={Position.Top} />
             <Handle type="source" position={Position.Bottom} />
-        </Card>
+        </div>
     );
-});
-
-export default TextInputNode;
+}

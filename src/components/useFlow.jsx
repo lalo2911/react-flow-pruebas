@@ -10,6 +10,14 @@ const initialNodes = [
     },
 ];
 
+import KeywordsNode from './CustomNodes/KeywordsNode';
+import TextInputNode from './CustomNodes/TextInputNode';
+
+const nodeTypes = {
+    keywords: KeywordsNode,
+    messages: TextInputNode,
+};
+
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
@@ -57,7 +65,7 @@ const useFlow = () => {
         event.dataTransfer.effectAllowed = 'move';
     };
 
-    return { nodes, edges, onNodesChange, onEdgesChange, onConnect, onDrop, onDragOver, onDragStart };
+    return { nodes, edges, onNodesChange, onEdgesChange, onConnect, onDrop, onDragOver, onDragStart, nodeTypes };
 };
 
 export default useFlow;
