@@ -3,14 +3,13 @@ import React from 'react';
 const NodeDragItem = ({ label, type, onDragStart }) => {
     // Mapeo de tipos a clases de borde
     const borderClasses = {
-        input: 'border-blue-500',
-        default: 'border-gray-500',
-        output: 'border-pink-500'
+        keywords: 'border-sky-500 bg-sky-50 hover:bg-sky-100',
+        messages: 'border-emerald-500 bg-emerald-50 hover:bg-emerald-100',
     };
 
     return (
         <div
-            className={`p-3 border ${borderClasses[type]} rounded cursor-move hover:bg-gray-50`}
+            className={`p-3 border-2 ${borderClasses[type]} rounded cursor-move`}
             draggable
             onDragStart={(event) => onDragStart(event, type)}
         >
