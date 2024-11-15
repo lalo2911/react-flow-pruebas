@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Handle, Position } from '@xyflow/react';
 
 export default function KeywordsNode(data) {
     const [keywords, setKeywords] = useState(data.keywords || ['hola', 'info']);
@@ -11,7 +12,7 @@ export default function KeywordsNode(data) {
     };
 
     return (
-        <Card className="p-4 w-64">
+        <div className="p-4 w-64 bg-white rounded-lg">
             <div className="font-semibold mb-2 text-blue-600">Keywords Trigger</div>
             <div className="space-y-2">
                 {keywords.map((keyword, index) => (
@@ -20,7 +21,7 @@ export default function KeywordsNode(data) {
                             type="text"
                             value={keyword}
                             onChange={(e) => handleKeywordChange(index, e.target.value)}
-                            className="border rounded px-2 py-1 w-full"
+                            className="border rounded px-2 py-1 w-full bg-white"
                         />
                     </div>
                 ))}
@@ -36,6 +37,6 @@ export default function KeywordsNode(data) {
                 </button>
             </div>
             <Handle type="source" position={Position.Bottom} />
-        </Card>
+        </div>
     );
 }

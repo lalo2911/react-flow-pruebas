@@ -28,7 +28,7 @@ export const initialNodes = [
     },
     {
         id: '5',
-        type: 'messageInput',
+        type: 'keywords',
         position: { x: 0, y: 300 },
     },
     {

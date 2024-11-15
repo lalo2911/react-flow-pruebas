@@ -14,12 +14,14 @@ import '@xyflow/react/dist/style.css';
 import { initialNodes } from './react-flow/nodes';
 import { initialEdges } from './react-flow/edges';
 
-import MessageNode from './react-flow/PersonalizedNodes/MessageNode';
-import CounterNode from './react-flow/PersonalizedNodes/CounterNode';
+import KeywordsNode from './react-flow/PersonalizedNodes/KeywordsNode';
+import TextInputNode from './react-flow/PersonalizedNodes/TextInputNode';
+import ViewNode from './react-flow/PersonalizedNodes/ViewNode';
 
-const nodeTypes = { 
-  messageInput: MessageNode,
-  counter: CounterNode,
+const nodeTypes = {
+  keywords: KeywordsNode,
+  textInput: TextInputNode,
+  view: ViewNode
 };
 
 export default function App() {
