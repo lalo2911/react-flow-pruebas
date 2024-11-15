@@ -1,7 +1,13 @@
-export default function App() {
+import React from 'react';
+import { ReactFlowProvider } from '@xyflow/react';
+import FlowWithSidebar from './components/FlowWithSidebar';
+
+const App = () => {
   return (
-    <div>
-      <h1>Hola</h1>
-    </div>
+    <ReactFlowProvider>
+      <FlowWithSidebar />
+    </ReactFlowProvider>
   );
-}
+};
+
+export default App;
