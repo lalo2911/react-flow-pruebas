@@ -1,3 +1,3 @@
 # react-flow-pruebas
 
-Repositori de pruebas con Reacto Flow
+Repositorio de pruebas con Reacto Flow
