@@ -28,19 +28,12 @@ export const initialNodes = [
     },
     {
         id: '5',
-        type: 'keywords',
+        type: 'messageInput',
         position: { x: 0, y: 300 },
     },
     {
         id: '6',
-        type: 'textInput',
-        position: { x: 300, y: 300 },
-        data: { text: '' },
-    },
-    {
-        id: '7',
-        type: 'view',
-        position: { x: 600, y: 300 },
-        data: { connectedNodes: [] },
+        type: 'counter',
+        position: { x: 200, y: 300 },
     },
 ];
